@@ -16,28 +16,35 @@ RAG 라는 공부를 시작하면서 자연스레 LLM에 관심이 가기 시작
 
 -------
 
-1. 인코더
-- 인코더는 2개의 층으로 구분된다. 셀프 어텐션과 피드 포워드 신경망이다.
+## 1. 인코더 (Encoder)
 
-   1-1. 멀티 헤드 셀프 어텐션 (Multi-Head Self Attention)
+인코더는 두 개의 층으로 구분됩니다: 셀프 어텐션(Self-Attention)과 피드 포워드 신경망(Feed Forward Neural Network)입니다.
 
-   $Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt d_k})$
+### 1.1 멀티 헤드 셀프 어텐션 (Multi-Head Self Attention)
 
-   """
-   기존 어텐션에 대한 공부는 하지 않아 공부하고 올리겠습니다.
-   """
+어텐션(attention) 연산은 다음과 같이 정의됩니다:
 
-   Word Embedding 및 Position Encoding이 된 (n,$d_{dim}$) 의 형태를 가진 다차원 백터가 생성이 됩니다.
-   편의상 D 라고 하겠습니다. D 는 하이퍼파라미터인 num_head 값에 따라 나누어지게 됩니다. 논문에서는 num_head = 6 입니다.
+Word Embedding 및 Position Encoding이 적용된 다차원 벡터 (n, $d_{dim}$) 형태의 입력을 생성합니다. 이를 편의상 D라고 하겠습니다. D는 하이퍼파라미터인 num_head 값에 따라 나누어집니다. 논문에서는 num_head = 6으로 설정되었습니다.
 
-   1-2. Position-Wide Feed Forwad Neural Network
+### 1.2 Position-Wide Feed Forward Neural Network
 
-2. Decoder
-   2-1. Masked Multi Head Self Attention
-   2-2. Multi Head Attention
-3. FC Layer
-4. Add&Norm
-   4-1. Residual Connection
-   4-2. Layer Normalization
+
+## 2. 디코더 (Decoder)
+
+
+### 2.1 Masked Multi-Head Self Attention
+
+
+### 2.2 Multi-Head Attention
+
+
+## 3. FC Layer (Fully Connected Layer)
+
+
+## 4. Add & Norm
+
+### 4.1 Residual Connection
+
+### 4.2 Layer Normalization
 
 
