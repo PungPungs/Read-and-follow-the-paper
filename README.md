@@ -2,7 +2,7 @@
 1.  [Transformer Explainer: LLM Transformer Model Visually Explained](https://poloclub.github.io/transformer-explainer/)
 2.  [The Illustrated Transformer](https://nlpinkorean.github.io/illustrated-transformer/)
 3.  [(18-01 트랜스포머 완전 정복)](https://wikidocs.net/217018)
-4.  [\[NLP 논문 구현\] pytorch로 구현하는 Transformer (Attention is All You Need)](https://cpm0722.github.io/pytorch-
+4.  [NLP 논문 구현\] pytorch로 구현하는 Transformer (Attention is All You Need)](https://cpm0722.github.io/pytorch-implementation/transformer)
 
 
 ### 시작
