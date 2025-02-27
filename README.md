@@ -1,28 +1,46 @@
-- 구글이 2017년 발표한 Attention All you need" 라는 논문이다.  기존 seq2seq 방식은 순차적인 처리이지만 Transformer는 인코더-디코더 방식을 유지하면서 병렬 처리가 가능하다.
+이해를 위해 참고한 사이트 목록이다.
+Transformer Explainer: LLM Transformer Model Visually Explained
+The Illustrated Transformer
+(18-01 트랜스포머 완전 정복)
+[NLP 논문 구현] pytorch로 구현하는 Transformer (Attention is All You Need)
+### 시작
+RAG 라는 공부를 시작하면서 자연스레 LLM에 관심이 가기 시작하였고 어느 순간부터 RAG에 대해 이해가 가질 않았다. Tokenization, Embedding, Text Splitter 이라는 문장들이 헷갈리기 시작하면서 어려움이 찾아와 LLM의 기초가 되는 Transformer 아키텍처에 대해 이해해보기로 하였다.
+초반이라 내용이 적고 빈틈 투성이일 수 있으나 차차 채워가도록 하겠습니다.
 
-- 내가 본 Transformer 는 크게 n가지로 구성되어 있다.
-1. Embedding
-	1. Word Embedding
-	2. Postional Encoding
-2. Encoder
-	1. Encoder Block
-		1. Multi-Head Self Attention
-		 - $Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d_k}})V$
-		 - Q :  Query, K = Key, V = Value
-		 - 멀티 헤드 셀프 어텐션은 모든 키 값에 대해 계산을 수행한다. 
-		 - 입력의 차원을 하이퍼 파라미터인 num_head에 따라 num_head개로 나눠서 계산을 수행 후 concat 한다.
-		2. Position Wide Feed Forward Neural Network
-3. Decoder
-	1. Masked Multi-Head Self Attention
-		- 디코더의 경우 입력의 길이가 인코더 출력의 길이랑 같아야 한다. 이로 인해 빈 부분에 `<pad>` 라는 토큰을 넣어 값을 무시하도록 아주 작은 수를 더해준다.
-	2. Multi-Head Attention
-		* 셀프 어텐션이 아닌 그냥 어텐션이다. Q값의 경우 인코더의 출력, K,V는 디코더의 값을 받아 연산을 수행한다.
-4. FC Layer (Linear)
-	- 가중치를 곱하거나 더해주는 레이어이다.
-5. Postion Wide Feed Forward Nueral Network
-	* 입력 차원을 증폭하여 신경망에 데이터를 입력 후 가중치 및 편항을 더해 출력하여 준다.
-6. Add&Norm
-	1. Residual Connection
-		- 전치 연결이라고 한다. 포지셔닝 인코더 백터와 멀티 헤드 셀프 어텐션이 끝난 출력값을 더해주는 단계이다.
-	2. Layer Normalization
-		- ... 기억이 나지 않는다. 재공부 후 수정 필요
+위에 사이트 및 "Attention is all you need" 논문을 참고하였다.
+
+### Transformer 란?
+2017년에 발표된 "Attention is All You Need" 논문에서 Transformer 아키텍처는 기존의 RNN이나 LSTM과 같은 순차적 처리 방식을 사용하던 모델들과 달리 Self-Attention 메커니즘을 통해 입력 시퀀스의 모든 단어 간의 관계를 동시에 고려할 수 있게 하였습니다. 이로 인해 학습 및 추론 시 병렬 처리가 가능해져 속도가 크게 향상되었으며 성능 또한 기존 모델들을 능가하게 되어 현재 LLM 개발에 활용되고 있다.
+
+-------
+
+1. 인코더
+인코더는 2개의 층으로 구분된다. 셀프 어텐션과 피드 포워드 신경망이다.
+
+1-1. 멀티 헤드 셀프 어텐션 (Multi-Head Self Attention)
+
+$Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt d_k})$
+
+"""
+기존 어텐션에 대한 공부는 하지 않아 공부하고 올리겠습니다.
+"""
+
+Word Embedding 및 Position Encoding이 된 (n,$d_{dim}$) 의 형태를 가진 다차원 백터가 생성이 됩니다.
+편의상 D 라고 하겠습니다. D 는 하이퍼파라미터인 num_head 값에 따라 나누어지게 됩니다. 논문에서는 num_head = 6 입니다.
+
+1-2. Position-Wide Feed Forwad Neural Network
+
+2. Decoder
+2-1. Masked Multi Head Self Attention
+2-2. Multi Head Attention
+   -
+3. FC Layer
+   -
+4. Add&Norm
+-
+4-1. Residual Connection
+- 
+4-2. Layer Normalization
+- 
+
+
