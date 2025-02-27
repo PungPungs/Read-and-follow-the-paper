@@ -1,8 +1,10 @@
 이해를 위해 참고한 사이트 목록이다.
-Transformer Explainer: LLM Transformer Model Visually Explained
-The Illustrated Transformer
-(18-01 트랜스포머 완전 정복)
-[NLP 논문 구현] pytorch로 구현하는 Transformer (Attention is All You Need)
+1.  [Transformer Explainer: LLM Transformer Model Visually Explained](https://poloclub.github.io/transformer-explainer/)
+2.  [The Illustrated Transformer](https://nlpinkorean.github.io/illustrated-transformer/)
+3.  [(18-01 트랜스포머 완전 정복)](https://wikidocs.net/217018)
+4.  [\[NLP 논문 구현\] pytorch로 구현하는 Transformer (Attention is All You Need)](https://cpm0722.github.io/pytorch-
+
+
 ### 시작
 RAG 라는 공부를 시작하면서 자연스레 LLM에 관심이 가기 시작하였고 어느 순간부터 RAG에 대해 이해가 가질 않았다. Tokenization, Embedding, Text Splitter 이라는 문장들이 헷갈리기 시작하면서 어려움이 찾아와 LLM의 기초가 되는 Transformer 아키텍처에 대해 이해해보기로 하였다.
 초반이라 내용이 적고 빈틈 투성이일 수 있으나 차차 채워가도록 하겠습니다.
